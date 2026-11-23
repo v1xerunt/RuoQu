@@ -1,0 +1,97 @@
+/* English strings for every [data-i18n] key; the Chinese originals are read from the page itself.
+   UI strings used by app.js live in UI (both languages). */
+window.EN = {
+  brand: '若璩 (Ruoqu)', vtitle_en: '(Ruoqu)', ico1: '1', ico2: '2', ico3: '3', nav_about: 'Data',
+  nav_clock: 'How it works', nav_quiz: 'Guess', nav_words: 'Life of a word', nav_scan: 'Library audit', nav_imit: 'Imitation',
+  nav_freeze: 'Frozen', nav_forgery: 'Forgeries', nav_undated: 'Undated texts',
+  hero_kicker: 'A clock that has read 2,500 years of Classical Chinese',
+  hero_h: 'Every character carries its century.',
+  hero_lede: 'Ruoqu is a time-conditional language model. It reads a passage of Classical Chinese character by character, as if it were written in each century in turn, and tells you when the text was most likely written. We used it to date more than six thousand works, audit an entire library for misattributed books, measure how far imitation can really go, and give dates to over six hundred texts that the standard catalogues leave undated.',
+  hero_name: 'Named after Yan Ruoqu 閻若璩 (1636–1704), who used linguistic evidence to prove that the “Old Text” chapters of the Book of Documents were a later forgery. Our model, which never saw the book in training, reaches the same verdict on its own.',
+  st_texts: 'dated works, each dated by a model that never saw it',
+  st_years: 'yrs', st_err: 'median dating error across 2,500 years',
+  st_prec: 'of “later than the catalogue” flags that turned out to be real problems on checking',
+  st_new: 'texts without a catalogue date now have a date with an uncertainty range',
+  clock_h: 'How it reads time', clock_sub: 'It does not guess a year directly. It “tries reading” the text in every century.',
+  s1_h: 'A passage', s1_p: 'Any piece of Classical Chinese: a poem, a preface, a fascicle of a sutra.',
+  s2_h: 'Read it in every century', s2_p: 'Given the premise “this was written in year t”, the model scores every character. It does so at 101 points in time, every 25 years from 600 BCE to 1900 CE.',
+  s3_h: 'The century where it reads best', s3_p: 'Where the text reads most naturally is where it most likely belongs. The answer is a probability curve, not a single number, and every character can say which way it pushes the date.',
+  clock_aside: 'No leakage: the six thousand works are split into five parts and each work is dated by the model that never read it. Long passages quoted by later texts are masked, so the model cannot answer by memory.',
+  quiz_h: 'Can you hear the century?', quiz_sub: 'Read a passage from a famous work, click on the timeline where you think it belongs, then see what Ruoqu says.',
+  quiz_next: 'Next passage',
+  words_h: 'The life of a word', words_sub: 'Type a character or a two-character word to see when it was in fashion and when it faded over 2,500 years. The curve is how strongly the model expects it in a fixed context, so topic is factored out.',
+  word_add: 'Add', word_clear: 'Clear', word_hint: 'Use traditional characters; compare up to three.',
+  eras_h: 'The most telling words of each century', eras_sub: 'Click any word to see its curve.',
+  scan_h: 'A machine audit of the whole library', scan_sub: 'We dated all 6,390 works, flagged those that clash with their catalogue date, and checked each one against the scholarly literature.',
+  sc_h: '77 cases with a scholarly consensus: model vs catalogue', sc_sub: 'Horizontal: the date established by scholars. Vertical: the catalogue date (grey ring) and the model’s date (red dot). The closer to the diagonal, the better.',
+  sc_closer: 'of cases: the model is closer to the scholarly date than the catalogue is',
+  sc_err: 'median distance from the scholarly date (years): model vs catalogue',
+  sc_top: 'of the top-30 “later than catalogue” flags turned out to be real problems',
+  tableview: 'Table', cases_h: '88 cases we checked',
+  im_h: 'The limits of imitation', im_sub: 'More than a thousand securely dated pastiches, plus imitations by six large language models: how far does imitating an earlier era pull a text’s apparent date toward its target?',
+  pull_h: 'How far imitation pulls', pull_sub: '0 = reads like the author’s ordinary writing; 1 = reads exactly like the target era. Lines show 95% intervals.',
+  f_human: 'Human imitators pull the date only about a tenth of the way toward their model: short poems the most, long prose the least.',
+  f_resid: 'Traces of the imitator’s own time that survive: half of the function-word signal, two-thirds of the content-word signal. Vocabulary is harder to hide than grammar.',
+  f_ai: 'Large language models’ default “classical poem” reads like the Southern Song: wind, rain, autumn, river, pavilion, dream, traveller, willow appear 3–10 times as often as in Tang poetry.',
+  gal_h: 'AI writes like Li Bai and Du Fu: the century Ruoqu hears',
+  fz_h: 'A frozen written language', fz_sub: 'One model reads only function words (the grammatical skeleton), another only content words. Which dates texts better? A ratio above 1 means grammar is harder to date than vocabulary: the grammar has frozen.',
+  f_song: 'The peak is in the Five Dynasties and Northern Song: the Ancient-Prose movement anchored written grammar to the classics of the Qin and Han, while vocabulary kept moving (difference before vs after 589, p = 2×10⁻⁷).',
+  yrs: 'yrs',
+  f_trans: 'The 263 translations of the Northern Song translation bureau read about 150 years earlier than their translators lived: after the Tang, Buddhist prose barely changed.',
+  fg_h: 'Forgeries and the falsely accused', fg_sub: 'A test list frozen before scoring. A: books scholars agree were forged under an earlier name. B: books once suspected as forgeries and vindicated by excavated manuscripts. Grey: attributed date. Blue: scholarly consensus. Red: the model’s date and 80% interval.',
+  ss_h: 'The Book of Documents, chapter by chapter', ss_sub: 'Each dot is a chapter. The 25 forged “Old Text” chapters read later as a group (AUC 0.82); three traditional baseline methods all fail.',
+  lz_h: 'The Liezi, passage by passage', lz_sub: 'Passages shared with pre-Qin works read early; passages found only in the Liezi read late (p = 1×10⁻⁴), matching the manual linguistic study by Wei Peiquan.',
+  ud_h: 'Dating the undated', ud_sub: '635 texts with no date in Kanripo, CBETA, the DILA person authority, the Daoist database, or their own bylines. We validate on texts that do have dates, then give ours.',
+  f_stated: 'Median gap for 155 Buddhist texts whose byline names a translator or dynasty.',
+  f_attached: '“Translator lost, now attached to the record of dynasty X”: for 127 texts whose period was assigned by a later catalogue, agreement is only half as good. Of 14 attached to the Later Han, 11 are dated after the end of the Han.',
+  f_ctrl: 'Positive control: of 12 modern scholarly articles printed in a Buddhist collection, 11 are dated after 1625.',
+  ud_ph: 'Search a title or canon number, e.g. T85, 敦煌, 語錄',
+  ud_note: 'Tier A: ≥2,000 characters, 80% interval ≤400 years, ≤20% overlap with the training texts. Flags: commentary (text and commentary differ in date), apocryphon (imitates old translation style, dates lean early), unreliable category (e.g. Song–Yuan Chan records read as Qing).',
+  ab_h: 'Data and citation', ab_p: 'Every number on this site comes from the final results of the paper. The data files used here can be downloaded:',
+  fl_new: 'dates and intervals for the 635 texts', fl_cases: 'the 88 library-audit cases', fl_scatter: 'the 77 consensus cases', fl_life: 'curves for 7,186 characters and words', fl_code: 'code for the model, dating and all analyses', fl_zenodo: 'full results and trained models (Zenodo)',
+  ab_cite: 'Paper in preparation. Citation details will follow the preprint.',
+  foot: '若璩 (Ruoqu) · a clock that reads Classical Chinese'
+};
+
+window.UI = {
+  zh: {
+    bce: '前', ce: '', yr: '年', model: '若璩', catalogue: '目錄', scholarly: '學界考訂', attributed: '托名', consensus: '學界共識',
+    you: '你的猜測', truth: '目錄年代', quiz_click: '在時間軸上點出你的猜測', quiz_err: (y, m) => `你差了 <b>${y}</b> 年，若璩差了 <b>${m}</b> 年。`,
+    quiz_score: (a, b, n) => `${n} 段：你平均差 ${a} 年，若璩 ${b} 年`,
+    quiz_from: '出自', quiz_written: '寫於', canon_note: '《詩經》被讀晚：被後世反覆引用、化用的經典，會被讀成「晚於成書」——這是我們發現的「經典化」效應。',
+    demo: (t, y) => `《${t}》——若璩讀出的年代：<b>${y}</b>`,
+    rel: '相對期待', above: '高於平均', below: '低於平均', notfound: '語料中沒有這個字詞（請試繁體字）',
+    cls: { all: '全部', confirmed: '①已證實', disputed: '②有爭議', new: '③新候選', catalogue: '④目錄/版本問題', model_explained: '⑤a 模型誤差（原因已明）', model_unexplained: '⑤b 未能解釋' },
+    side: { late: '晚於目錄', early: '早於目錄' }, spans_h: '模型指出的晚出字句：', spans_h_early: '模型讀出的早期字句：',
+    sets: { audit: '全庫掃描', blind_A: '盲測·偽書', blind_B: '盲測·平反', blind_C: '盲測·今文尚書' },
+    blind_cat: { all: '全部', A: 'A 偽託之書', B: 'B 平反之書', D: 'D 懸案' },
+    guwen: '偽古文', jinwen: '今文', zhougao: '周初誥命', unique: '獨有段落', parallel: '互見段落', mixed: '部分互見',
+    tiers: { all: '全部', A: 'A 檔', B: 'B 檔', C: 'C 檔' }, flags: { layered: '注本', apocryphal: '疑偽經', unreliable_cat: '類別不可靠' },
+    asked: (a) => `模仿：${a}`, reads: '若璩讀作', none: '沒有符合的書', more: (n) => `另有 ${n} 部，請縮小搜尋`,
+    pull: '拉回比例', human: '人類', ratio: '骨架/實詞 誤差比', chars: '字', interval: '80% 區間'
+  },
+  en: {
+    bce: '', ce: '', yr: '', model: 'Ruoqu', catalogue: 'Catalogue', scholarly: 'Scholarly date', attributed: 'Attributed', consensus: 'Consensus',
+    you: 'Your guess', truth: 'Catalogue date', quiz_click: 'Click on the timeline to place your guess', quiz_err: (y, m) => `You were off by <b>${y}</b> years; Ruoqu by <b>${m}</b>.`,
+    quiz_score: (a, b, n) => `${n} passages: you average ${a} yrs off, Ruoqu ${b}`,
+    quiz_from: 'From', quiz_written: 'Written', canon_note: 'The Book of Songs reads late: classics that later writers quote and reuse endlessly come to sound “later than they are”. This is the canonization effect we found.',
+    demo: (t, y) => `${t} — Ruoqu’s reading: <b>${y}</b>`,
+    rel: 'relative expectation', above: 'above average', below: 'below average', notfound: 'Not in the corpus (try traditional characters)',
+    cls: { all: 'All', confirmed: '① Confirmed', disputed: '② Disputed', new: '③ New candidate', catalogue: '④ Catalogue / edition', model_explained: '⑤a Model error (explained)', model_unexplained: '⑤b Unexplained' },
+    side: { late: 'later than catalogue', early: 'earlier than catalogue' }, spans_h: 'Late phrases the model points at:', spans_h_early: 'Early phrases the model hears:',
+    sets: { audit: 'Library audit', blind_A: 'Blind · forgery', blind_B: 'Blind · vindicated', blind_C: 'Blind · New Text Documents' },
+    blind_cat: { all: 'All', A: 'A Forged', B: 'B Vindicated', D: 'D Open cases' },
+    guwen: 'Forged Old Text', jinwen: 'New Text', zhougao: 'Early Zhou', unique: 'Liezi only', parallel: 'Shared with pre-Qin', mixed: 'Partly shared',
+    tiers: { all: 'All', A: 'Tier A', B: 'Tier B', C: 'Tier C' }, flags: { layered: 'commentary', apocryphal: 'apocryphon', unreliable_cat: 'unreliable category' },
+    asked: (a) => `in the style of ${a}`, reads: 'Ruoqu hears', none: 'No matching texts', more: (n) => `${n} more; refine the search`,
+    pull: 'pull toward target', human: 'Human', ratio: 'skeleton / content error ratio', chars: 'chars', interval: '80% interval'
+  }
+};
+
+window.NUMS = { zht: '壹貳參肆伍陸柒捌玖', zhs: '壹贰叁肆伍陆柒捌玖' };
+window.DYN = [
+  { a: -800, b: -771, zh: '西周', en: 'Zhou' }, { a: -770, b: -476, zh: '春秋', en: 'Spr. & Aut.' }, { a: -475, b: -222, zh: '戰國', en: 'Warring St.' },
+  { a: -221, b: -207, zh: '秦', en: 'Qin' }, { a: -206, b: 220, zh: '漢', en: 'Han' }, { a: 220, b: 589, zh: '魏晉南北朝', en: 'Six Dynasties' },
+  { a: 589, b: 907, zh: '隋唐', en: 'Sui–Tang' }, { a: 907, b: 960, zh: '五代', en: '5 Dyn.' }, { a: 960, b: 1279, zh: '宋', en: 'Song' },
+  { a: 1279, b: 1368, zh: '元', en: 'Yuan' }, { a: 1368, b: 1644, zh: '明', en: 'Ming' }, { a: 1644, b: 1911, zh: '清', en: 'Qing' }
+];

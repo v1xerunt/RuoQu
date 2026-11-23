@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>若璩 Ruoqu · 語言之鐘</title>
+<meta name="description" content="Ruoqu: a time-conditional language model that reads 2,500 years of Classical Chinese, dates texts, finds forgeries, and measures how well anyone can fake an era.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;900&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='4' y='4' width='56' height='56' rx='6' fill='%23b8322a'/%3E%3Ctext x='32' y='45' font-size='38' text-anchor='middle' fill='%23f5f0e6' font-family='serif'%3E璩%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#top"><span class="seal-sm" data-i18n="seal_sm">璩</span><span data-i18n="brand">若璩 Ruoqu</span></a>
+  <div class="toggles">
+    <div class="seg" role="group" aria-label="language">
+      <button class="seg-b" data-lang="zhs">简</button><button class="seg-b" data-lang="zht">繁</button><button class="seg-b" data-lang="en">EN</button>
+    </div>
+    <button id="theme" class="pill" aria-label="theme">◐</button>
+  </div>
+</header>
+<aside class="rail" aria-label="sections">
+  <div class="rail-line"><span class="rail-dot" id="rail-dot"></span></div>
+  <nav class="rail-nav">
+    <a href="#clock"><span class="rn" data-num="1"></span><span class="rt" data-i18n="nav_clock">原理</span></a>
+    <a href="#quiz"><span class="rn" data-num="2"></span><span class="rt" data-i18n="nav_quiz">猜年代</span></a>
+    <a href="#words"><span class="rn" data-num="3"></span><span class="rt" data-i18n="nav_words">文字的一生</span></a>
+    <a href="#scan"><span class="rn" data-num="4"></span><span class="rt" data-i18n="nav_scan">全庫掃描</span></a>
+    <a href="#imitation"><span class="rn" data-num="5"></span><span class="rt" data-i18n="nav_imit">擬古</span></a>
+    <a href="#freeze"><span class="rn" data-num="6"></span><span class="rt" data-i18n="nav_freeze">凍結</span></a>
+    <a href="#forgery"><span class="rn" data-num="7"></span><span class="rt" data-i18n="nav_forgery">辨偽</span></a>
+    <a href="#undated"><span class="rn" data-num="8"></span><span class="rt" data-i18n="nav_undated">無年代之書</span></a>
+    <a href="#about"><span class="rn" data-num="9"></span><span class="rt" data-i18n="nav_about">資料</span></a>
+  </nav>
+</aside>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-title">
+    <h1 class="vtitle">若璩</h1><div class="vtitle-en" data-i18n="vtitle_en"></div>
+    <div class="seal" aria-hidden="true"><span data-i18n="seal1">語言</span><span data-i18n="seal2">之鐘</span></div>
+  </div>
+  <div class="hero-copy">
+    <p class="kicker" data-i18n="hero_kicker">一座讀了兩千五百年文言的時鐘</p>
+    <h2 class="hero-h" data-i18n="hero_h">每一個字，都帶著它的年代。</h2>
+    <p class="lede" data-i18n="hero_lede">若璩是一個以時間為條件的語言模型：它在每個世紀的語感下逐字閱讀一段文言，然後告訴你這段文字最可能寫於何時。我們用它為六千多部典籍斷代、在全庫中找出被誤題的書、量化「擬古」能做到多像，並為六百多部標準目錄未給年代的文獻給出年代。</p>
+    <div class="hero-demo" aria-live="polite">
+      <div class="demo-text" id="demo-text"></div>
+      <div class="demo-chart" id="demo-chart"></div>
+      <div class="demo-caption" id="demo-caption"></div>
+    </div>
+    <p class="namenote" data-i18n="hero_name">名字取自清代學者閻若璩（1636–1704）。他以語言證據考定《古文尚書》為後出偽作；我們的模型在從未見過該書的情況下，獨立得出了同樣的結論。</p>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" aria-label="key numbers">
+  <div class="stat"><div class="stat-n">6,390</div><div class="stat-l" data-i18n="st_texts">部有年代的典籍，每部都由沒見過它的模型斷代</div></div>
+  <div class="stat"><div class="stat-n">72.5<small data-i18n="st_years">年</small></div><div class="stat-l" data-i18n="st_err">斷代誤差中位數，橫跨兩千五百年</div></div>
+  <div class="stat"><div class="stat-n">86%</div><div class="stat-l" data-i18n="st_prec">「晚於目錄」標記中，經核對確有其事者</div></div>
+  <div class="stat"><div class="stat-n">635</div><div class="stat-l" data-i18n="st_new">部標準目錄未給年代的文獻，獲得帶區間的年代</div></div>
+</section>
+
+<!-- 1 CLOCK -->
+<section id="clock" class="chapter">
+  <div class="chapter-head"><span class="num" data-num="1"></span><div><h2 data-i18n="clock_h">它如何讀出時間</h2><p class="sub" data-i18n="clock_sub">不是直接猜一個年份，而是在每個世紀「試讀」一遍。</p></div></div>
+  <div class="steps">
+    <div class="step"><div class="step-ico" data-i18n="ico1">文</div><h3 data-i18n="s1_h">一段文字</h3><p data-i18n="s1_p">任何一段文言：一首詩、一篇序、一卷佛經。</p></div>
+    <div class="step"><div class="step-ico" data-i18n="ico2">世</div><h3 data-i18n="s2_h">在每個世紀試讀</h3><p data-i18n="s2_p">模型以「這是西元某年的文字」為前提，逐字計算每個字出現的可能性；從公元前 600 年到 1900 年，每 25 年一個時間點，共 101 個，各讀一遍。</p></div>
+    <div class="step"><div class="step-ico" data-i18n="ico3">時</div><h3 data-i18n="s3_h">讀得最順的年代</h3><p data-i18n="s3_p">哪個年代讀得最順，文字就最可能寫於那時。結果是一條機率曲線，而不只是一個數字；每個字也都能說出它把年代往哪邊推。</p></div>
+  </div>
+  <p class="aside" data-i18n="clock_aside">無洩漏設計：六千多部書分成五份，每部書都由沒讀過它的那個模型來斷代；後世引用的長段原文被遮蔽，模型不能靠「背書」作答。</p>
+</section>
+
+<!-- 2 QUIZ -->
+<section id="quiz" class="chapter">
+  <div class="chapter-head"><span class="num" data-num="2"></span><div><h2 data-i18n="quiz_h">你能聽出是哪個世紀嗎？</h2><p class="sub" data-i18n="quiz_sub">讀一段名著片段，在時間軸上點出你的猜測，再看若璩怎麼說。</p></div></div>
+  <div class="quiz">
+    <div class="quiz-text vertical" id="quiz-text"></div>
+    <div class="quiz-side">
+      <div class="quiz-meta" id="quiz-meta"></div>
+      <div id="quiz-chart" class="chart"></div>
+      <div class="quiz-result" id="quiz-result" aria-live="polite"></div>
+      <div class="quiz-controls">
+        <button class="btn" id="quiz-next" data-i18n="quiz_next">下一段</button>
+        <span class="score" id="quiz-score"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 WORDS -->
+<section id="words" class="chapter">
+  <div class="chapter-head"><span class="num" data-num="3"></span><div><h2 data-i18n="words_h">文字的一生</h2><p class="sub" data-i18n="words_sub">輸入一個字或詞，看它在兩千五百年裡何時當紅、何時退場。曲線是模型在固定上下文下對它的「期待」，已排除題材的影響。</p></div></div>
+  <div class="words-controls">
+    <input id="word-input" class="text-input" maxlength="2" placeholder="的" aria-label="character">
+    <button class="btn" id="word-add" data-i18n="word_add">加入比較</button>
+    <button class="btn ghost" id="word-clear" data-i18n="word_clear">清空</button>
+    <span class="hint" data-i18n="word_hint">請用繁體字；最多比較三個。</span>
+  </div>
+  <div class="chips" id="pair-chips"></div>
+  <div id="word-chart" class="chart tall"></div>
+  <div class="legend" id="word-legend"></div>
+  <h3 class="minor" data-i18n="eras_h">每個世紀最有辨識度的字詞</h3>
+  <p class="sub small" data-i18n="eras_sub">點任一詞，看它的曲線。</p>
+  <div class="era-strip" id="era-strip"></div>
+</section>
+
+<!-- 4 SCAN -->
+<section id="scan" class="chapter">
+  <div class="chapter-head"><span class="num" data-num="4"></span><div><h2 data-i18n="scan_h">機器審計：全庫掃描</h2><p class="sub" data-i18n="scan_sub">我們讓模型為全部 6,390 部書斷代，標出與目錄年代明顯矛盾者，再逐一查考文獻。</p></div></div>
+  <div class="scan-top">
+    <div>
+      <h3 class="minor" data-i18n="sc_h">學界有公論的 77 例：模型 vs 目錄</h3>
+      <p class="sub small" data-i18n="sc_sub">橫軸是學者考訂的年代；縱軸上，灰圈是目錄年代，紅點是模型年代。越靠近對角線越準。</p>
+      <div id="scatter" class="chart square"></div>
+      <div class="legend" id="scatter-legend"></div>
+    </div>
+    <div class="scan-stats">
+      <div class="stat small"><div class="stat-n">73%</div><div class="stat-l" data-i18n="sc_closer">的案例裡，模型比目錄更接近學界結論</div></div>
+      <div class="stat small"><div class="stat-n">122 <small>vs</small> 276</div><div class="stat-l" data-i18n="sc_err">與考訂年代的中位差（年）：模型 vs 目錄</div></div>
+      <div class="stat small"><div class="stat-n">92%</div><div class="stat-l" data-i18n="sc_top">排名前 30 的「晚於目錄」標記，經查確有問題</div></div>
+      <details class="table-view"><summary data-i18n="tableview">表格</summary><div id="scatter-table"></div></details>
+    </div>
+  </div>
+  <h3 class="minor" data-i18n="cases_h">88 個查考過的案例</h3>
+  <div class="chips" id="case-filters"></div>
+  <div class="cases" id="cases"></div>
+</section>
+
+<!-- 5 IMITATION -->
+<section id="imitation" class="chapter">
+  <div class="chapter-head"><span class="num" data-num="5"></span><div><h2 data-i18n="im_h">擬古的極限</h2><p class="sub" data-i18n="im_sub">一千多篇有確切年代的擬古詩文，加上六個大語言模型的仿作：仿作能把「表觀年代」往目標年代拉回多少？</p></div></div>
+  <div class="im-grid">
+    <div>
+      <h3 class="minor" data-i18n="pull_h">拉回比例</h3>
+      <p class="sub small" data-i18n="pull_sub">0 = 和作者平常的文字一樣，1 = 讀起來完全像目標年代。橫線是 95% 區間。</p>
+      <div id="pull-chart" class="chart"></div>
+    </div>
+    <div class="im-facts">
+      <div class="fact"><div class="fact-n">≈ 4–11%</div><div data-i18n="f_human">人類擬古者只把年代往目標拉回一成左右，短詩拉得最多、長文最少。</div></div>
+      <div class="fact"><div class="fact-n">50% / 63%</div><div data-i18n="f_resid">時代痕跡殘留：虛詞保留一半、實詞保留六成多。詞彙比語法更難藏。</div></div>
+      <div class="fact"><div class="fact-n">1225</div><div data-i18n="f_ai">大模型「預設的文言詩」讀起來像南宋：風、雨、秋、江、亭、夢、客、柳……是唐詩的 3–10 倍。</div></div>
+    </div>
+  </div>
+  <h3 class="minor" data-i18n="gal_h">AI 學李白、杜甫——若璩讀出的年代</h3>
+  <div class="gallery" id="gallery"></div>
+</section>
+
+<!-- 6 FREEZE -->
+<section id="freeze" class="chapter">
+  <div class="chapter-head"><span class="num" data-num="6"></span><div><h2 data-i18n="fz_h">凍結的書面語</h2><p class="sub" data-i18n="fz_sub">只看虛詞（語法骨架）與只看實詞（詞彙）的兩個模型，誰更能斷代？比值大於 1，表示語法比詞彙更難斷代——語法被「凍住」了。</p></div></div>
+  <div class="fz-grid">
+    <div id="freeze-chart" class="chart"></div>
+    <div class="im-facts">
+      <div class="fact"><div class="fact-n">1.57</div><div data-i18n="f_song">峰值在五代北宋：古文運動把書面語法錨定在先秦兩漢，詞彙卻照樣與時俱進（589 年前後差異 p = 2×10⁻⁷）。</div></div>
+      <div class="fact"><div class="fact-n">−148<small data-i18n="yrs">年</small></div><div data-i18n="f_trans">北宋譯經院 263 部譯經，讀起來比譯者實際年代早一百五十年：唐以後的佛教文體幾乎不再變化。</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 FORGERY -->
+<section id="forgery" class="chapter">
+  <div class="chapter-head"><span class="num" data-num="7"></span><div><h2 data-i18n="fg_h">偽書與蒙冤之書</h2><p class="sub" data-i18n="fg_sub">打分前凍結的盲測題單：A 類是學界公認的偽託之書，B 類是曾被疑為偽、後被出土文獻平反的古書。灰條是托名年代，藍條是學界共識，紅點與紅線是模型年代與 80% 區間。</p></div></div>
+  <div class="chips" id="blind-filters"></div>
+  <div id="blind-chart" class="chart"></div>
+  <div class="fg-grid">
+    <div>
+      <h3 class="minor" data-i18n="ss_h">《尚書》逐篇：今文 vs 偽古文</h3>
+      <p class="sub small" data-i18n="ss_sub">每個點是一篇；偽古文 25 篇整體偏晚（AUC 0.82），三個傳統基線方法全部失敗。</p>
+      <div id="shang-chart" class="chart short"></div>
+    </div>
+    <div>
+      <h3 class="minor" data-i18n="lz_h">《列子》逐段</h3>
+      <p class="sub small" data-i18n="lz_sub">與先秦典籍互見的段落讀得早，獨有段落讀得晚（p = 1×10⁻⁴）——與魏培泉的人工語言學研究一致。</p>
+      <div id="liezi-chart" class="chart short"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 UNDATED -->
+<section id="undated" class="chapter">
+  <div class="chapter-head"><span class="num" data-num="8"></span><div><h2 data-i18n="ud_h">為無年代之書斷代</h2><p class="sub" data-i18n="ud_sub">在 Kanripo、CBETA、DILA 人名庫、道教資料庫與卷首題署中都查不到年代的 635 部文獻。先在查得到年代的書上驗證，再給出結果。</p></div></div>
+  <div class="ud-top">
+    <div class="im-facts">
+      <div class="fact"><div class="fact-n">38 <small data-i18n="yrs">年</small></div><div data-i18n="f_stated">卷首題署寫明譯者或朝代的 155 部佛典：模型與題署的中位差。</div></div>
+      <div class="fact"><div class="fact-n">100 <small data-i18n="yrs">年</small></div><div data-i18n="f_attached">「失譯人名今附某錄」——譯者已佚、由後代經錄掛靠朝代的 127 部：吻合度只有一半；掛在後漢的 14 部，11 部被斷在東漢結束之後。</div></div>
+      <div class="fact"><div class="fact-n">11 / 12</div><div data-i18n="f_ctrl">陽性對照：混入藏經的 12 篇現代論文，11 篇被判在 1625 年以後。</div></div>
+    </div>
+  </div>
+  <div class="ud-controls">
+    <input id="ud-search" class="text-input wide" data-i18n-ph="ud_ph" placeholder="搜尋書名或藏經號，如 T85、敦煌、語錄">
+    <div class="chips" id="ud-tiers"></div>
+  </div>
+  <div id="ud-axis" class="chart axis-only"></div>
+  <div class="ud-list" id="ud-list" role="list"></div>
+  <p class="aside small" data-i18n="ud_note">A 檔：≥2,000 字、80% 區間 ≤400 年、與訓練集重合 ≤20%。標記：注本（正文與注文年代不同）、疑偽經（仿古譯經語，年代偏早）、不可靠類別（如宋元禪宗語錄被讀成清代）。</p>
+</section>
+
+<section id="about" class="chapter coda">
+  <div class="chapter-head"><span class="num" data-num="9"></span><div><h2 data-i18n="ab_h">資料與引用</h2></div></div>
+  <p data-i18n="ab_p">本站所有數字均來自論文最終版本的結果。網頁使用的資料檔可直接下載：</p>
+  <ul class="files">
+    <li><a href="data/newdates.json">newdates.json</a> — <span data-i18n="fl_new">635 部文獻的年代與區間</span></li>
+    <li><a href="data/cases.json">cases.json</a> — <span data-i18n="fl_cases">全庫掃描 88 個案例</span></li>
+    <li><a href="data/scatter.json">scatter.json</a> — <span data-i18n="fl_scatter">學界公論 77 例</span></li>
+    <li><a href="data/lifelines.json">lifelines.json</a> — <span data-i18n="fl_life">7,186 個字詞的年代曲線</span></li>
+    <li><a href="https://github.com/v1xerunt/RuoQu">github.com/v1xerunt/RuoQu</a> — <span data-i18n="fl_code">模型、斷代與全部分析的代碼</span></li>
+    <li><a href="https://doi.org/10.5281/zenodo.24451962">doi.org/10.5281/zenodo.24451962</a> — <span data-i18n="fl_zenodo">完整結果資料與訓練好的模型（Zenodo）</span></li>
+  </ul>
+  <p class="small muted" data-i18n="ab_cite">論文準備中。引用格式將於預印本發布後更新。</p>
+</section>
+</main>
+<footer class="foot"><span class="seal-sm" data-i18n="seal_sm">璩</span> <span data-i18n="foot">若璩 Ruoqu · 一座讀文言的時鐘</span></footer>
+<div class="tooltip" id="tip" role="tooltip"></div>
+<script src="assets/d3.min.js"></script>
+<script src="assets/i18n.js"></script>
+<script src="assets/data.js"></script>
+<script src="assets/zhconv.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
