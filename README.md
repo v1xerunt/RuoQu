@@ -2,7 +2,7 @@
 
 Code for
 
-> Gao, J., Zhu, Y., Yu, L., Wang, Y. & Ma, L. *A generative model dates Chinese texts and reveals the limits of imitation.*
+> Gao, J., Zhu, Y., Yu, L., Wang, Y. & Ma, L. *A generative model dates Chinese texts and catches imitators of the past.*
 
 Ruoqu is a character-level Transformer decoder conditioned on the year of composition. It learns how Chinese was
 written in every century from 600 BCE to 1900 CE and dates a text by Bayes' rule, asking under which years the text
