@@ -251,30 +251,71 @@ arr(0.484, B0 + 0.056, bx - 0.002, B0 + 0.056, c=GREYS[1])
 # --- outputs
 OX = 0.682
 tx(OX, TOP, 'Likelihood by year', fontsize=7.2, fontweight='bold')
-g = np.linspace(-600, 1900, 300)
-ll = -((g - 975) / 330) ** 2
-iax = ax_at(OX + 0.004, B0 + 0.180, 0.112, 0.062)
-iax.set_facecolor('none')
-iax.plot(g, ll, color=BLUE, lw=0.9)
-iax.set_xticks([]); iax.set_yticks([])
-for s in ['top', 'right']:
-    iax.spines[s].set_visible(False)
-iax.set_xlabel('year', fontsize=5.2, labelpad=0.5)
+# passage log-likelihoods on the 25-year grid (schematic). Each passage is weakly informative, their sum is sharp
+g = np.arange(-600, 1901, 25).astype(float)
+rng_l = np.random.default_rng(11)
+curves = []
+for c, wl, wr in [(900, 1.0, 1.25), (970, 1.1, 0.9), (1030, 0.9, 1.1), (1090, 1.05, 1.0), (950, 1.2, 1.3)]:
+    w = np.where(g < c, 1575 * wl, 1100 * wr)
+    walk = np.convolve(rng_l.normal(0, 1, g.size + 8), np.ones(9) / 9, mode='valid')
+    v = -((g - c) / w) ** 2 + 0.035 * walk
+    curves.append(v - v.max())
+S = np.sum(curves, 0)
+sc = -1 / (S.min() - S.max())
+S = (S - S.max()) * sc
+k = int(np.argmax(S))
+LAX = ax_at(OX + 0.004, B0 + 0.170, 0.114, 0.076)
+LAX.set_facecolor('none')
+LAX.fill_between(g, S, -1.12, color=BLUE, alpha=0.07, lw=0)
+for v in curves:
+    LAX.plot(g, v * sc, color=BLUE_L, lw=0.55, alpha=0.95)
+LAX.plot(g, S, color=BLUE, lw=1.15, solid_capstyle='round')
+LAX.plot([g[k], g[k]], [-1.12, S[k]], color=BLUE, lw=0.4, ls=(0, (1.5, 1.2)))
+LAX.plot([g[k]], [S[k]], 'o', ms=2.4, color=BLUE, mec='white', mew=0.4, zorder=5)
+LAX.text(g[k], 0.06, f'{int(g[k])}', fontsize=4.8, color=BLUE, ha='center', va='bottom')
+xs = -150
+LAX.text(xs + 70, S[np.searchsorted(g, xs)] - 0.02, 'sum', fontsize=4.8, color=BLUE, ha='left', va='top')
+LAX.text(-600, -0.06, 'passages', fontsize=4.6, color='#6f95bf', ha='left', va='bottom')
+LAX.set_xlim(-650, 1950); LAX.set_ylim(-1.12, 0.22)
+LAX.set_yticks([])
+LAX.set_xticks([-500, 500, 1500]); LAX.set_xticklabels(['500 BCE', '500', '1500'], fontsize=4.6)
+LAX.tick_params(axis='x', length=1.5, pad=1, width=0.4, colors=GREYS[0])
+for s_ in ['top', 'right', 'left']:
+    LAX.spines[s_].set_visible(False)
+LAX.spines['bottom'].set_linewidth(0.5)
+LAX.spines['bottom'].set_color(GREYS[0])
+print('likelihood peak', g[k])
 arr(X1 + 0.001, B0 + 0.208, OX - 0.004, B0 + 0.208, c=GREYS[1])
-arr(OX + 0.121, B0 + 0.210, OX + 0.147, B0 + 0.210, c=GREYS[1])
-tx(OX + 0.134, B0 + 0.224, 'Bayes', fontsize=5.4, ha='center', color=GREYS[1])
-tx(OX + 0.158, TOP, 'Posterior date', fontsize=7.2, fontweight='bold')
-post = np.exp(-0.5 * ((g - 975) / 95) ** 2)
-c_ = np.cumsum(post); c_ /= c_[-1]
-q10, q90 = g[np.searchsorted(c_, .1)], g[np.searchsorted(c_, .9)]
-iax = ax_at(OX + 0.160, B0 + 0.180, 0.135, 0.062)
-iax.set_facecolor('none')
-iax.fill_between(g, 0, post, where=(g >= q10) & (g <= q90), color=BLUE_L, lw=0)
-iax.plot(g, post, color=BLUE, lw=0.9)
-iax.set_xticks([]); iax.set_yticks([])
-for s in ['top', 'right', 'left']:
-    iax.spines[s].set_visible(False)
-iax.set_xlabel('year', fontsize=5.2, labelpad=0.5)
+arr(OX + 0.127, B0 + 0.212, OX + 0.152, B0 + 0.212, c=GREYS[1])
+tx(OX + 0.1395, B0 + 0.200, 'Bayes', fontsize=5.4, ha='center', color=GREYS[1])
+tx(OX + 0.160, TOP, 'Posterior date', fontsize=7.2, fontweight='bold')
+# posterior on the 25-year grid, shaped like the Lingqi jing example of panel a (median 975, 80% interval 950-1250)
+pg = np.arange(850, 1451, 25).astype(float)
+pm = np.array([.004, .008, .018, .040, .130, .320, .085, .055, .042, .036, .032, .029, .026, .023, .021, .019, .018,
+               .017, .016, .015, .014, .012, .009, .006, .005])
+pm = pm / pm.sum()
+cm_ = np.cumsum(pm)
+q10_, med_, q90_ = pg[np.searchsorted(cm_, .1)], pg[np.searchsorted(cm_, .5)], pg[np.searchsorted(cm_, .9)]
+PAX = ax_at(OX + 0.166, B0 + 0.170, 0.126, 0.076)
+PAX.set_facecolor('none')
+inside = (pg >= q10_) & (pg <= q90_)
+top = pm.max()
+PAX.axvspan(q10_ - 12.5, q90_ + 12.5, ymax=1.18 / 1.62, color=BLUE, alpha=0.07, lw=0)
+PAX.bar(pg, pm, width=19, color=np.where(inside, BLUE, BLUE_L), lw=0, zorder=3)
+PAX.plot([q10_ - 12.5, q90_ + 12.5], [top * 1.18, top * 1.18], color=BLUE, lw=0.6, solid_capstyle='butt')
+for xq in (q10_ - 12.5, q90_ + 12.5):
+    PAX.plot([xq, xq], [top * 1.12, top * 1.24], color=BLUE, lw=0.6)
+PAX.text((q10_ + q90_) / 2, top * 1.27, '80% interval', fontsize=4.6, ha='center', va='bottom', color=BLUE)
+PAX.text(med_ + 20, top * 0.96, f'median {int(med_)}', fontsize=4.8, ha='left', va='top', color=BLUE)
+PAX.set_xlim(830, 1470); PAX.set_ylim(0, top * 1.62)
+PAX.set_yticks([])
+PAX.set_xticks([900, 1100, 1300]); PAX.set_xticklabels(['900', '1100', '1300'], fontsize=4.6)
+PAX.tick_params(axis='x', length=1.5, pad=1, width=0.4, colors=GREYS[0])
+for s_ in ['top', 'right', 'left']:
+    PAX.spines[s_].set_visible(False)
+PAX.spines['bottom'].set_linewidth(0.5)
+PAX.spines['bottom'].set_color(GREYS[0])
+print('posterior quantiles', q10_, med_, q90_)
 rbox(OX, B0 + 0.092, 0.300, 0.050, 'white', ec='#dadada', lw=0.4, r=0.006, z=3)
 tx(OX + 0.010, B0 + 0.128, 'Character-level evidence', fontsize=6.8, fontweight='bold', zorder=4)
 tx(OX + 0.010, B0 + 0.106, r'$\log p(x_i \mid x_{<i}, t_1) - \log p(x_i \mid x_{<i}, t_0)$', fontsize=6.2, zorder=4)
