@@ -138,10 +138,6 @@ ax.spines['left'].set_visible(False)
 B0, B1 = 0.375, 0.705
 tx(0.006, B1 - 0.004, 'b', fontsize=11, fontweight='bold')
 tx(0.030, B1 - 0.004, 'A generative model of how each century wrote', fontsize=7.6, fontweight='bold')
-ov.plot([0.745, 0.775], [B1 - 0.004] * 2, color=GREYS[1], lw=1.2, transform=T)
-tx(0.780, B1 - 0.004, 'dating', fontsize=6.0, color=GREYS[0])
-ov.plot([0.835, 0.865], [B1 - 0.004] * 2, color=PURPLE, lw=1.2, ls=(0, (3, 2)), transform=T)
-tx(0.870, B1 - 0.004, 'training only', fontsize=6.0, color=GREYS[0])
 BY0, BY1 = B0 + 0.018, B0 + 0.293
 TOP = BY1 - 0.016
 
@@ -182,7 +178,7 @@ for j, (s, fc, c) in enumerate(toks):
     tx(xx + tw / 2, B0 + 0.217, s, fontsize=6.8, ha='center', color=c, style='italic' if j < 2 else 'normal', zorder=4)
 tx(CX, B0 + 0.198, 'year and register', fontsize=5.3, color=BLUE, va='top')
 tx(CX + tg * 4.7, B0 + 0.198, 'characters', fontsize=5.3, color=GREYS[1], va='top')
-arr(0.279, B0 + 0.217, CX - 0.003, B0 + 0.217, c=PURPLE, ls=(0, (3, 2)))
+arr(0.279, B0 + 0.217, CX - 0.003, B0 + 0.217, c=GREYS[1])
 tx(CX, B0 + 0.150, 'Smooth year embedding', fontsize=6.4, fontweight='bold', color=BLUE)
 # stacked periodic features of the year, read off at one year
 EX0, EY0, EW, EH = CX + 0.002, B0 + 0.040, 0.115, 0.090
