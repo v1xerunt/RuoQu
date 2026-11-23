@@ -14,6 +14,7 @@ models are cross-fitted by author so that every work is dated by a model that ne
 The model is named after Yan Ruoqu 閻若璩 (1636–1704), who showed that the Old Text chapters of the *Book of
 Documents* were a fourth-century forgery.
 
+- **Interactive website**: https://v1xerunt.github.io/RuoQu/ (source in `docs/`)
 - **Results archive** (curated lists, out-of-sample dates, audit flags, imitation pieces, dates for undated texts,
   figure source data): https://doi.org/10.5281/zenodo.24451962
 - **Texts**: Kanseki Repository (https://www.kanripo.org) and CBETA (https://www.cbeta.org)
@@ -25,6 +26,7 @@ src/            model, training, dating and all analyses (one script per step)
 scripts/        shell pipelines that chain the steps in the order used for the paper
 data/           curated lists read by the code (blind-test lists, manual date fixes, LLM prompt table, audit cases)
 paper_figures/  scripts that draw every figure and table of the paper from the results archive
+docs/           the interactive results website served by GitHub Pages
 ```
 
 | Step | Scripts |
