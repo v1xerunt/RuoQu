@@ -1,11 +1,17 @@
-/* Self-hosted fonts, subset to the characters this site displays. Both fonts are licensed under the
-   SIL Open Font License 1.1 (see OFL-NotoSerifTC.txt and OFL-EBGaramond.txt). Sources: github.com/google/fonts */
+/* Self-hosted fonts, subset to the characters this site displays. All fonts are licensed under the
+   SIL Open Font License 1.1 (see the OFL-*.txt files). Sources: github.com/google/fonts */
 @font-face { font-family: "Noto Serif TC"; font-style: normal; font-weight: 400; font-display: swap;
   src: url("NotoSerifTC-400.woff2") format("woff2"); }
 @font-face { font-family: "Noto Serif TC"; font-style: normal; font-weight: 600; font-display: swap;
   src: url("NotoSerifTC-600.woff2") format("woff2"); }
 @font-face { font-family: "Noto Serif TC"; font-style: normal; font-weight: 900; font-display: swap;
   src: url("NotoSerifTC-900.woff2") format("woff2"); }
+@font-face { font-family: "Noto Serif SC"; font-style: normal; font-weight: 400; font-display: swap;
+  src: url("NotoSerifSC-400.woff2") format("woff2"); }
+@font-face { font-family: "Noto Serif SC"; font-style: normal; font-weight: 600; font-display: swap;
+  src: url("NotoSerifSC-600.woff2") format("woff2"); }
+@font-face { font-family: "Noto Serif SC"; font-style: normal; font-weight: 900; font-display: swap;
+  src: url("NotoSerifSC-900.woff2") format("woff2"); }
 @font-face { font-family: "EB Garamond"; font-style: normal; font-weight: 400; font-display: swap;
   src: url("EBGaramond-400.woff2") format("woff2"); }
 @font-face { font-family: "EB Garamond"; font-style: normal; font-weight: 600; font-display: swap;

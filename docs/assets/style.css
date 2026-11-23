@@ -16,8 +16,12 @@
   --band-b: rgba(29, 26, 22, 0.0);
   --seal-text: #f5f0e6;
   --shadow: 0 1px 0 rgba(29,26,22,.04), 0 8px 24px -12px rgba(29,26,22,.18);
-  --serif-zh: "Noto Serif TC", "Songti TC", "Noto Serif CJK TC", "Source Han Serif TC", "PMingLiU", serif;
+  --serif-zh: "Noto Serif TC", "Noto Serif SC", "Songti TC", "Noto Serif CJK TC", "Source Han Serif TC", "PMingLiU", serif;
   --serif-en: "EB Garamond", "Iowan Old Style", "Georgia", serif;
+}
+/* simplified Chinese: simplified glyph forms first, traditional font for characters kept in traditional form */
+html[lang="zh-Hans"] {
+  --serif-zh: "Noto Serif SC", "Noto Serif TC", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", serif;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
