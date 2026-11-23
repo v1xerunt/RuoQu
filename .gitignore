@@ -1,0 +1,9 @@
+work/
+results/
+paper_figures/output/
+paper_figures/tables/
+__pycache__/
+*.pyc
+*.pt
+*.npz
+.DS_Store

@@ -1,0 +1,9 @@
+torch>=2.1
+numpy
+pandas
+scipy
+scikit-learn
+statsmodels
+matplotlib
+# optional: generation with open-weight language models (src/aiimit_gen.py)
+# vllm

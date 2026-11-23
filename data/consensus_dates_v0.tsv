@@ -1,0 +1,78 @@
+id	title	set	cat_lo	cat_hi	sch_lo	sch_hi	basis	status	source	model_median	model_q10	model_q90	model	sch_mid	err	in_interval
+KR3e0014	銀海精微	audit	601.0	682.0	1400.0	1500.0	text	consensus	Unschuld & Kovacs 1999（15世紀）；四庫：宋以後書	1475.0	1325.0	1625.0	Ruoqu-L 5-fold OOF	1450.0	25.0	True
+KR5a0011	高上玉皇本行集經（張良校正本）	audit	-227.0	-187.0	1217.0	1225.0	text	consensus	謝聰輝 2009；Schachter 2015	1175.0	975.0	1400.0	Ruoqu-L 5-fold OOF	1221.0	-46.0	True
+KR6p0097	東海若解	audit	618.0	907.0	1686.0	1734.0	text	consensus	CBETA X1178：清實賢解	1700.0	1175.0	1875.0	Ruoqu-L 5-fold OOF	1710.0	-10.0	True
+KR6b0057	撰集百緣經	audit	222.0	280.0	445.0	594.0	text	consensus	出本充代 1995/98；辛嶋 2006；Nattier 2008	450.0	375.0	500.0	Ruoqu-L 5-fold OOF	519.5	-69.5	True
+KR6b0002	菩薩本緣經	audit	222.0	280.0	317.0	420.0	text	consensus	顏洽茂、熊娟 2010（西晉以後，或東晉）	450.0	350.0	525.0	Ruoqu-L 5-fold OOF	368.5	81.5	True
+KR6j0761	瑜伽集要燄口施食儀	audit	618.0	907.0	1150.0	1368.0	text	consensus	徐東軍 2020（西夏不動金剛重集）；陸韋志 2022（元代本）	1300.0	1075.0	1825.0	Ruoqu-L 5-fold OOF	1259.0	41.0	True
+KR3a0039	上蔡語錄	audit	1070.0	1103.0	1159.0	1168.0	layer	consensus	朱熹後序1159、後記1168（今本為朱熹編定本）	1225.0	1175.0	1300.0	Ruoqu-L 5-fold OOF	1163.5	61.5	False
+KR6q0053	臨濟錄	audit	618.0	907.0	1100.0	1120.0	layer	consensus	柳田聖山：今本源於1120年宗演重刊本	1025.0	975.0	1225.0	Ruoqu-L 5-fold OOF	1110.0	-85.0	False
+KR5c0319	鉛汞甲庚至寶集成	audit	618.0	907.0	1115.0	1368.0	text	consensus	陳國符：金代或更晚；孟乃昌：宋後	1325.0	1000.0	1600.0	Ruoqu-L 5-fold OOF	1241.5	83.5	True
+KR3g0025	靈城精義	audit	937.0	975.0	1368.0	1550.0	text	consensus	四庫：其非明以前書確矣；劉基注亦明中葉以後偽書	1600.0	1550.0	1825.0	Ruoqu-L 5-fold OOF	1459.0	141.0	True
+KR2k0091	吳地記	audit	618.0	907.0	1100.0	1300.0	layer	consensus	四庫：此書不出廣微；今本含淳熙1186、元貞1295等宋元增補	1125.0	975.0	1325.0	Ruoqu-L 5-fold OOF	1200.0	-75.0	True
+KR3f0038	夏侯陽算經	audit	557.0	581.0	762.0	780.0	text	consensus	錢寶琮 1963：今本為唐韓延書	1025.0	650.0	1275.0	Ruoqu-L 5-fold OOF	771.0	254.0	False
+KR4d0065	周元公集	audit	1037.0	1073.0	1189.0	1274.0	layer	consensus	粟品孝；姜龍翔 2020：宋人編集（諸儒議論等後人附益）	1325.0	1175.0	1600.0	Ruoqu-L 5-fold OOF	1231.5	93.5	False
+KR1h0008	論語筆解	audit	788.0	824.0	1023.0	1063.0	layer	consensus	金培懿 2010：北宋許勃繕校重編	1175.0	975.0	1425.0	Ruoqu-L 5-fold OOF	1043.0	132.0	False
+KR1a0002	子夏易傳	audit	-487.0	-400.0	880.0	1077.0	text	consensus	陳鴻森 1985：十一卷本成於神宗朝以前；晁說之：唐張弧	825.0	-275.0	1275.0	Ruoqu-L 5-fold OOF	978.5	-153.5	False
+KR6r0006	十六大羅漢因果識見頌	audit	618.0	907.0	1000.0	1048.0	text	consensus	范仲淹1048序；印順：中土雜湊	1075.0	975.0	1300.0	Ruoqu-L 5-fold OOF	1024.0	51.0	True
+KR6i0559	圓覺經略疏鈔	audit	618.0	907.0	1041.0	1146.0	layer	consensus	思齊1041校刊序；觀復1146：刊板添改	1050.0	975.0	1275.0	Ruoqu-L 5-fold OOF	1093.5	-43.5	True
+KR6k0013	曇無德律部雜羯磨 T1432	audit	220.0	265.0	410.0	500.0	text	consensus	平川彰（四分律節本，5世紀）；Nattier 2008	450.0	325.0	775.0	Ruoqu-L 5-fold OOF	455.0	-5.0	True
+KR6k0014	羯磨 T1433	audit	220.0	265.0	400.0	500.0	text	consensus	平川彰；Fang & Lu 2023	400.0	325.0	725.0	Ruoqu-L 5-fold OOF	450.0	-50.0	True
+KR6i0250	禪祕要法經 T613	audit	384.0	417.0	424.0	442.0	text	consensus	僧祐錄：曇摩蜜多；境野1935；Schuster 1984	575.0	525.0	600.0	Ruoqu-L 5-fold OOF	433.0	142.0	False
+KR6k0076	梵網經 T1484	audit	384.0	417.0	440.0	480.0	text	consensus	Benn 1998；大野1954；船山徹	1400.0	675.0	1875.0	Ruoqu-L 5-fold OOF	460.0	940.0	False
+KR6j0118	首楞嚴經 T945	audit	618.0	907.0	713.0	720.0	text	consensus	Keyworth 2022（713年後）；Benn 2008	1750.0	1425.0	1875.0	Ruoqu-L 5-fold OOF	716.5	1033.5	False
+KR6q0113	達磨大師血脉論	audit	502.0	557.0	780.0	850.0	text	consensus	中華佛教百科（寶林傳801前後）；柳田（牛頭宗）	1000.0	775.0	1300.0	Ruoqu-L 5-fold OOF	815.0	185.0	False
+KR6q0115	達磨大師破相論（觀心論）	audit	502.0	557.0	675.0	810.0	text	consensus	慧琳一切經音義（約810）著錄神秀作；楊曾文	825.0	650.0	1025.0	Ruoqu-L 5-fold OOF	742.5	82.5	True
+KR3g0020	葬書	audit	296.0	324.0	960.0	1279.0	text	consensus	四庫：自宋始出；楊玉成（龍脈觀念中晚唐後）	1600.0	1300.0	1850.0	Ruoqu-L 5-fold OOF	1119.5	480.5	False
+KR3g0024	天玉經	audit	864.0	898.0	960.0	1279.0	text	consensus	四庫：至宋始出	1575.0	1250.0	1725.0	Ruoqu-L 5-fold OOF	1119.5	455.5	False
+KR3g0033	李虛中命書	audit	-550.0	-221.0	960.0	1279.0	layer	consensus	四庫：後半言四柱，起於宋，宋人闌入	1550.0	975.0	1775.0	Ruoqu-L 5-fold OOF	1119.5	430.5	False
+KR3e0033	太平惠民和劑局方	audit	1202.0	1231.0	1107.0	1252.0	text	consensus	四庫：大觀核心＋紹興、寶慶、淳祐增方	1400.0	1300.0	1425.0	Ruoqu-L 5-fold OOF	1179.5	220.5	False
+KR6m0038	肇論	audit	384.0	417.0	550.0	589.0	layer	consensus	塚本善隆 1954（梁末至陳合編）	650.0	525.0	850.0	Ruoqu-L 5-fold OOF	569.5	80.5	False
+KR6i0294	菩薩瓔珞經 T656	audit	384.0	417.0	376.0	417.0	text	consensus	僧祐錄竺佛念；林謙、何書群（Radich）2020：竺佛念自撰	275.0	225.0	300.0	Ruoqu-L 5-fold OOF	396.5	-121.5	False
+KR6k0105	菩薩瓔珞本業經 T1485	audit	384.0	417.0	480.0	500.0	text	consensus	船山徹 2004；Buswell 1990；大野 1954（中土撰述）	675.0	475.0	1450.0	Ruoqu-L 5-fold OOF	490.0	185.0	False
+KR6f0017	佛說決定毘尼經 T325	audit	265.0	316.0	400.0	433.0	text	consensus	大野 1954（東晉後期）；Williams 2002（曇無讖）	475.0	400.0	600.0	Ruoqu-L 5-fold OOF	416.5	58.5	True
+KR6i0551	大方廣圓覺修多羅了義經 T842	audit	618.0	907.0	700.0	730.0	text	consensus	Muller（8世紀初中土撰述）；Buswell 1990	1400.0	1000.0	1850.0	Ruoqu-L 5-fold OOF	715.0	685.0	False
+KR2e0017	汝南遺事	audit	1251.0	1273.0	1234.0	1244.0	text	consensus	四庫；Chan 1974（模型偏晚，疑乾隆改譯）	1350.0	1325.0	1350.0	Ruoqu-L 5-fold OOF	1239.0	111.0	False
+KR3l0104	集異記	audit	817.0	837.0	817.0	837.0	text	consensus	四庫：蓋猶舊本	950.0	950.0	975.0	Ruoqu-L 5-fold OOF	827.0	123.0	False
+KR3i0047	蟹略	audit	1179.0	1184.0	1184.0	1231.0	text	consensus	直齋書錄解題；四庫（模型誤差）	1650.0	1575.0	1725.0	Ruoqu-L 5-fold OOF	1207.5	442.5	False
+KR1a0090	周易文詮	audit	1339.0	1369.0	1339.0	1369.0	text	consensus	四庫（未能解釋的偏差）	1650.0	1525.0	1775.0	Ruoqu-L 5-fold OOF	1354.0	296.0	False
+KR6i0172	佛說佛大僧大經 T541	audit	420.0	479.0	220.0	316.0	text	consensus	林屋 1941：魏吳—西晉失譯（傳統歸沮渠京聲）	250.0	50.0	300.0	Ruoqu-L 5-fold OOF	268.0	-18.0	True
+KR6j0206	阿難陀目佉尼呵離陀經 T1013	audit	420.0	479.0	265.0	380.0	text	consensus	林屋 1941/45；稻垣 1987：西晉或更早	200.0	0.0	300.0	Ruoqu-L 5-fold OOF	322.5	-122.5	False
+KR6b0050	佛本行經 T193	audit	420.0	479.0	260.0	402.0	text	consensus	干潟（支謙與羅什之間）；後藤 2007	275.0	250.0	300.0	Ruoqu-L 5-fold OOF	331.0	-56.0	True
+KR3l0003	朝野僉載	audit	686.0	741.0	978.0	1000.0	text	consensus	今本六卷全從太平廣記輯出（趙庶洋 2023）；四庫：宋人摘錄、已非原書	950.0	850.0	975.0	Ruoqu-L 5-fold OOF	989.0	-39.0	True
+KR3e0010	肘後備急方	audit	270.0	330.0	500.0	1144.0	text	consensus	葛洪原書＋陶弘景補闕（約500）＋唐人改動＋楊用道附廣（1144）（Bradley 2022；四庫）	825.0	625.0	1425.0	Ruoqu-L 5-fold OOF	822.0	3.0	True
+KR3i0045	禽經	audit	-550.0	-221.0	1042.0	1102.0	text	consensus	四庫：宋人（王安石學派）偽作，陸佃（1042–1102）首引；張華注亦偽	1175.0	125.0	1700.0	Ruoqu-L 5-fold OOF	1072.0	103.0	False
+KR1j0008	廣雅	audit	220.0	240.0	581.0	900.0	text	consensus	張揖原文附曹憲（隋）音釋以存，含開成後反切的傳刻改動（四庫）	1350.0	325.0	1800.0	Ruoqu-L 5-fold OOF	740.5	609.5	False
+KR2k0008	明一統志	audit	1428.0	1466.0	1522.0	1588.0	text	consensus	四庫：多及嘉靖、隆慶建置，後人續入；巴兆祥：萬曆萬壽堂本增至1588	1725.0	1600.0	1875.0	Ruoqu-L 5-fold OOF	1555.0	170.0	False
+KR3e0031	小兒衞生總微論方	audit	960.0	1279.0	1150.0	1216.0	text	consensus	宋闕名；何大任嘉定序（約1216？）；明1489朱臣刻本	1400.0	1400.0	1425.0	Ruoqu-L 5-fold OOF	1183.0	217.0	False
+KR3e0034	傳信適用方	audit	1137.0	1182.0	1180.0	1180.0	text	consensus	吳彥夔，淳熙庚子1180（直齋）；附夏子益奇疾方38道	1400.0	1325.0	1425.0	Ruoqu-L 5-fold OOF	1180.0	220.0	False
+KR5b0145	上清骨髓靈文鬼律	audit	984.0	1004.0	1100.0	1116.0	text	consensus	S&V（Andersen）：饒洞天為傳說祖師，今本為鄧有功（1116前）校編；李志鴻 2009	1175.0	1075.0	1300.0	Ruoqu-L 5-fold OOF	1108.0	67.0	False
+KR5g0036	太上助國救民總真祕要	audit	1111.0	1116.0	1116.0	1116.0	text	consensus	S&V：元妙宗編，序1116，未見後人層	1425.0	1275.0	1600.0	Ruoqu-L 5-fold OOF	1116.0	309.0	False
+KR5c0098	道德真經注疏	audit	440.0	483.0	1100.0	1200.0	text	consensus	S&V（Robinet）：二十三家注的選集，最早12世紀，題顧歡為明藏編者之誤；主體為河上公注與成玄英疏	775.0	600.0	975.0	Ruoqu-L 5-fold OOF	1150.0	-375.0	False
+KR3a0030	二程遺書	audit	1052.0	1085.0	1168.0	1168.0	text	consensus	朱熹次錄，乾道四年1168（四庫）	1200.0	1150.0	1300.0	Ruoqu-L 5-fold OOF	1168.0	32.0	True
+KR3a0031	二程外書	audit	1052.0	1085.0	1173.0	1173.0	text	consensus	朱熹編，乾道九年1173（四庫）	1200.0	1150.0	1275.0	Ruoqu-L 5-fold OOF	1173.0	27.0	True
+列子	列子	blind_A	-450.0	-375.0	250.0	380.0	text	consensus	data/blind_v0.tsv（打分前凍結）	-200.0	-225.0	-50.0	Ruoqu-L 5-fold ensemble	315.0	-515.0	False
+關尹子	關尹子	blind_A	-520.0	-480.0	900.0	1200.0	text	consensus	data/blind_v0.tsv（打分前凍結）	1025.0	-250.0	1375.0	Ruoqu-L 5-fold ensemble	1050.0	-25.0	True
+亢倉子	亢倉子	blind_A	-500.0	-400.0	735.0	746.0	text	consensus	data/blind_v0.tsv（打分前凍結）	-200.0	-500.0	0.0	Ruoqu-L 5-fold ensemble	740.5	-940.5	False
+子華子	子華子	blind_A	-550.0	-480.0	1100.0	1200.0	text	consensus	data/blind_v0.tsv（打分前凍結）	-300.0	-550.0	-200.0	Ruoqu-L 5-fold ensemble	1150.0	-1450.0	False
+元經	元經	blind_A	600.0	617.0	1030.0	1080.0	text	consensus	data/blind_v0.tsv（打分前凍結）	1075.0	525.0	1075.0	Ruoqu-L 5-fold ensemble	1055.0	20.0	True
+李衛公問對	李衛公問對	blind_A	620.0	649.0	1050.0	1100.0	text	consensus	data/blind_v0.tsv（打分前凍結）	1025.0	975.0	1100.0	Ruoqu-L 5-fold ensemble	1075.0	-50.0	True
+孔叢子	孔叢子	blind_A	-220.0	-206.0	150.0	280.0	text	consensus	data/blind_v0.tsv（打分前凍結）	0.0	-50.0	75.0	Ruoqu-L 5-fold ensemble	215.0	-215.0	False
+古文孝經孔傳	古文孝經孔傳	blind_A	-150.0	-80.0	580.0	800.0	text	consensus	data/blind_v0.tsv（打分前凍結）	-300.0	-550.0	25.0	Ruoqu-L 5-fold ensemble	690.0	-990.0	False
+忠經	忠經	blind_A	100.0	166.0	800.0	1100.0	text	consensus	data/blind_v0.tsv（打分前凍結）	150.0	-475.0	850.0	Ruoqu-L 5-fold ensemble	950.0	-800.0	False
+西京雜記	西京雜記	blind_A	-50.0	-20.0	300.0	520.0	text	consensus	data/blind_v0.tsv（打分前凍結）	225.0	125.0	500.0	Ruoqu-L 5-fold ensemble	410.0	-185.0	False
+神異經	神異經	blind_A	-140.0	-90.0	200.0	500.0	text	consensus	data/blind_v0.tsv（打分前凍結）	275.0	-75.0	1000.0	Ruoqu-L 5-fold ensemble	350.0	-75.0	True
+漢武帝內傳	漢武帝內傳	blind_A	52.0	92.0	400.0	600.0	text	consensus	data/blind_v0.tsv（打分前凍結）	225.0	-50.0	1075.0	Ruoqu-L 5-fold ensemble	500.0	-275.0	False
+洞冥記	洞冥記	blind_A	20.0	60.0	400.0	600.0	text	consensus	data/blind_v0.tsv（打分前凍結）	475.0	200.0	925.0	Ruoqu-L 5-fold ensemble	500.0	-25.0	True
+列仙傳	列仙傳	blind_A	-57.0	-6.0	100.0	300.0	text	consensus	data/blind_v0.tsv（打分前凍結）	225.0	25.0	300.0	Ruoqu-L 5-fold ensemble	200.0	25.0	True
+尉繚子	尉繚子	blind_B	1000.0	1200.0	-350.0	-230.0	text	consensus	data/blind_v0.tsv（打分前凍結）	-225.0	-425.0	-75.0	Ruoqu-L 5-fold ensemble	-290.0	65.0	True
+六韜	六韜	blind_B	200.0	600.0	-300.0	-180.0	text	consensus	data/blind_v0.tsv（打分前凍結）	-175.0	-275.0	-25.0	Ruoqu-L 5-fold ensemble	-240.0	65.0	True
+晏子春秋	晏子春秋	blind_B	200.0	600.0	-400.0	-250.0	text	consensus	data/blind_v0.tsv（打分前凍結）	-225.0	-300.0	-200.0	Ruoqu-L 5-fold ensemble	-325.0	100.0	True
+鶡冠子	鶡冠子	blind_B	200.0	800.0	-300.0	-200.0	text	consensus	data/blind_v0.tsv（打分前凍結）	-175.0	-275.0	-75.0	Ruoqu-L 5-fold ensemble	-250.0	75.0	True
+文子	文子	blind_B	200.0	500.0	-250.0	-100.0	text	consensus	data/blind_v0.tsv（打分前凍結）	-25.0	-175.0	-25.0	Ruoqu-L 5-fold ensemble	-175.0	150.0	False
+孫子	孫子	blind_B	-350.0	-250.0	-500.0	-350.0	text	consensus	data/blind_v0.tsv（打分前凍結）	-225.0	-475.0	-50.0	Ruoqu-L 5-fold ensemble	-425.0	200.0	False
+老子	老子	blind_B	-300.0	-200.0	-500.0	-300.0	text	consensus	data/blind_v0.tsv（打分前凍結）	-425.0	-600.0	-50.0	Ruoqu-L 5-fold ensemble	-400.0	-25.0	True
+穆天子傳	穆天子傳	blind_B	265.0	300.0	-400.0	-280.0	text	consensus	data/blind_v0.tsv（打分前凍結）	-125.0	-375.0	1150.0	Ruoqu-L 5-fold ensemble	-340.0	215.0	False
+偽古文尚書	偽古文尚書	blind_A	-1600.0	-700.0	250.0	322.0	text	consensus	data/blind_v0.tsv（打分前凍結）	1175.0	-450.0	1375.0	Ruoqu-L 5-fold ensemble	286.0	889.0	False
+今文尚書(虞夏商及其他)	今文尚書(虞夏商及其他)	blind_C	-1600.0	-700.0	-1100.0	-250.0	text	consensus	data/blind_v0.tsv（打分前凍結）	-350.0	-575.0	0.0	Ruoqu-L 5-fold ensemble	-675.0	325.0	True
+今文尚書·周初誥命	今文尚書·周初誥命	blind_C	-1046.0	-950.0	-1046.0	-900.0	text	consensus	data/blind_v0.tsv（打分前凍結）	-225.0	-575.0	1225.0	Ruoqu-L 5-fold ensemble	-973.0	748.0	False
