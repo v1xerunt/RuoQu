@@ -44,7 +44,7 @@ paper_figures/  scripts that draw every figure and table of the paper from the r
 pip install -r requirements.txt
 ```
 
-Training used PyTorch with bfloat16 on NVIDIA GPUs (four L40S per model). `aiimit_gen.py` additionally needs `vllm`.
+Training used PyTorch with bfloat16 on four NVIDIA A100 GPUs per model. `aiimit_gen.py` additionally needs `vllm`.
 
 ## Data locations
 
