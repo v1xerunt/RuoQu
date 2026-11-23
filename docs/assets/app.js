@@ -4,7 +4,9 @@
 const T0 = -800, T1 = 1900;
 const store = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
                 set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
-let LANG = store.get('ruoqu-lang2') || 'zhs';   // zhs 简体 (default) · zht 繁體 · en
+// language: ?lang=en|zhs|zht in the URL wins, then the saved choice, then simplified Chinese
+const QLANG = new URLSearchParams(location.search).get('lang');
+let LANG = (['zhs', 'zht', 'en'].includes(QLANG) && QLANG) || store.get('ruoqu-lang2') || 'zhs';   // zhs 简体 (default) · zht 繁體 · en
 if (!['zhs', 'zht', 'en'].includes(LANG)) LANG = 'zhs';
 const isZh = () => LANG !== 'en';
 /* traditional -> simplified, character by character (maps built with OpenCC, assets/zhconv.js) */
@@ -100,7 +102,9 @@ function applyLang() {
   document.querySelectorAll('.seg-b').forEach(b => b.setAttribute('aria-pressed', b.getAttribute('data-lang') === LANG));
   document.title = LANG === 'en' ? '若璩 (Ruoqu) · A language clock for Classical Chinese' : tx('若璩 · 語言之鐘');
 }
-document.querySelectorAll('.seg-b').forEach(b => b.addEventListener('click', () => { LANG = b.getAttribute('data-lang'); store.set('ruoqu-lang2', LANG); applyLang(); rerender(); }));
+document.querySelectorAll('.seg-b').forEach(b => b.addEventListener('click', () => { LANG = b.getAttribute('data-lang'); store.set('ruoqu-lang2', LANG);
+  try { const u = new URL(location.href); u.searchParams.set('lang', LANG); history.replaceState(null, '', u); } catch (e) {}
+  applyLang(); rerender(); }));
 (() => {
   const t = store.get('ruoqu-theme'); if (t) document.documentElement.dataset.theme = t;
   document.getElementById('theme').addEventListener('click', () => {
